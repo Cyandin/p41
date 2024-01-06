@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: simple_time_service_deployment
 spec:
-  replicas: 3  # Adjust the number of replicas as needed
+  replicas: 3
   selector:
     matchLabels:
       app: simple_time_service
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: simple_time_service_container
-        image: cyandin/simple_time_service:latest  # Replace with your Docker Hub image
+        image: cyandin/simple_time_service:latest
         ports:
         - containerPort: 5000
 
@@ -30,7 +30,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 5000
-  type: LoadBalancer  # Use "LoadBalancer" for cloud providers that support it
-
-
-
+  type: LoadBalancer
