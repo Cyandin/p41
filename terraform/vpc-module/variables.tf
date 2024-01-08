@@ -1,2 +1,2 @@
-# Add any common variables here
-
+variable "cidr" {
+}
