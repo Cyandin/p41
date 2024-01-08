@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple_time_service_deployment
+  name: simple-time-service-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: simple_time_service
+      app: simple-time-service
   template:
     metadata:
       labels:
-        app: simple_time_service
+        app: simple-time-service
     spec:
       containers:
-      - name: simple_time_service_container
+      - name: simple-time-service-container
         image: cyandin/simple_time_service:latest
         ports:
         - containerPort: 5000
@@ -22,10 +22,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: simple_time_service_service
+  name: simple-time-service-service
 spec:
   selector:
-    app: simple_time_service
+    app: simple-time-service
   ports:
     - protocol: TCP
       port: 80
