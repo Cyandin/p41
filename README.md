@@ -1,6 +1,6 @@
 #Good afternoon!
 #
-#To deploy this exercise, please do:
+#To deploy this exercise, please go to the terraform directory and run:
 #
 #terraform init
 #terraform plan
