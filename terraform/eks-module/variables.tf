@@ -13,13 +13,3 @@ variable "private_subnets" {
   type        = list(string)
 }
 
-variable "key_name" {
-  description = "The name of the EC2 key pair to use for instances (optional)"
-  type        = string
-}
-
-variable "additional_security_group_ids" {
-  description = "List of additional security group IDs to attach to the EKS nodes"
-  type        = list(string)
-}
-
