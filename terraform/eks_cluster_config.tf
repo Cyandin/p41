@@ -1,7 +1,21 @@
+provider "aws" {
+  region = "ca-central-1"
+}
+
+module "my_vpc" {
+  source        = "terraform-aws-modules/vpc/aws"
+  version       = "2.78.0"
+  name          = "p41-vpc"
+  cidr          = "10.0.0.0/16"
+  azs           = ["ca-central-1a", "ca-central-1b"]
+  private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
+  public_subnets  = ["10.0.3.0/24", "10.0.4.0/24"]
+}
+
 module "my_eks_cluster" {
-  source      = "./eks-module"
-  vpc_id      = "vpc-0dd9880eb96354c16"
-  cluster_name = "my_eks_cluster"
-  private_subnets = ["subnet-05e3236054c7d0853", "subnet-0a3dd63e625135a8c", "subnet-0e46c7cd67f6c04f7"]
+  source            = "./eks-module"
+  vpc_id            = module.my_vpc.vpc_id
+  cluster_name      = "my_eks_cluster"
+  private_subnets   = module.my_vpc.private_subnets
 }
 

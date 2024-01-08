@@ -4,7 +4,6 @@ provider "aws" {
 
 module "my_vpc" {
   source        = "terraform-aws-modules/vpc/aws"
-  version       = "2.78.0"
   name          = "p41-vpc"
   cidr          = "10.0.0.0/16"
   azs           = ["ca-central-1a", "ca-central-1b"]
