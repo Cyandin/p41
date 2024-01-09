@@ -9,7 +9,7 @@
 #
 #sudo docker run -d -p 5000:5000 simple_time_service:latest
 #
-#
+#NOTE: My criteria for this working was curling 127.0.0.1:5000 and receiving the JSON structure.
 #
 #
 #
