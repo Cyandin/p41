@@ -18,3 +18,8 @@ variable "ipv4_cidr" {
   type        = string
 }
 
+variable "publicapi" {
+  description = "Public API access"
+  type        = bool
+  default     = true
+}
