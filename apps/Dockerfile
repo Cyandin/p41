@@ -6,11 +6,12 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Create and set the working directory
-WORKDIR /app
+WORKDIR /apps
 
 # Install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install gunicorn
 
 # Create a non-root user
 RUN useradd -ms /bin/bash appuser
@@ -19,7 +20,7 @@ RUN useradd -ms /bin/bash appuser
 COPY . .
 
 # Change ownership to the non-root user
-RUN chown -R appuser:appuser /app
+RUN chown -R appuser:appuser /apps
 
 # Switch to the non-root user
 USER appuser
@@ -28,5 +29,4 @@ USER appuser
 EXPOSE 5000
 
 # Command to run the application
-CMD ["python", "simple_time_service.py"]
-
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "simple_time_service:app"]
