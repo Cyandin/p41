@@ -5,9 +5,10 @@ provider "aws" {
 module "eks_cluster" {
   source = "terraform-aws-modules/eks/aws"
 
-  cluster_name = var.cluster_name
-  subnet_ids      = var.private_subnets
-  vpc_id       = var.vpc_id
+  cluster_name                = var.cluster_name
+  subnet_ids                  = var.private_subnets
+  vpc_id                      = var.vpc_id
+  cluster_service_ipv4_cidr   = var.ipv4_cidr
 
 cluster_addons = {
     coredns = {

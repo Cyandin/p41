@@ -19,18 +19,20 @@ provider "aws" {
 }
 
 module "my_vpc" {
-  source = "./vpc-module"
-  name          = "p41-vpc"
-  cidr = "192.0.0.0/16"
-  azs           = ["ca-central-1a", "ca-central-1b"]
-  private_subnets = ["192.0.1.0/24", "192.0.2.0/24"]
-  public_subnets  = ["192.0.3.0/24", "192.0.4.0/24"]
+  source                = "./vpc-module"
+  name                  = "p41-vpc"
+  cidr                  = "192.168.0.0/16"
+  secondary_cidr_blocks = ["10.0.0.0/22"]
+  azs                   = ["ca-central-1a", "ca-central-1b"]
+  private_subnets       = ["192.168.1.0/24", "192.168.2.0/24", "10.0.1.0/24", "10.0.2.0/24"]
+  public_subnets        = ["192.168.3.0/24", "192.168.4.0/24"]
 }
 
 module "my_eks_cluster" {
-  source          = "./eks-module"
-  vpc_id          = module.my_vpc.vpc_id
-  cluster_name    = "my_eks_cluster"
-  private_subnets = module.my_vpc.private_subnets
+  source                     = "./eks-module"
+  vpc_id                     = module.my_vpc.vpc_id
+  cluster_name               = "my_eks_cluster"
+  private_subnets            = module.my_vpc.private_subnets
+  ipv4_cidr                  = "10.0.0.0/18" 
 }
 

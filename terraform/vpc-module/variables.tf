@@ -1,6 +1,9 @@
 variable "cidr" {
 }
 
+variable "secondary_cidr_blocks" {
+}
+
 variable "name" {
 }
 
@@ -20,5 +23,3 @@ variable "enable_nat_gateway" {
 variable "single_nat_gateway" {
   default = true
 }
-
-

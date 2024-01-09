@@ -13,3 +13,8 @@ variable "private_subnets" {
   type        = list(string)
 }
 
+variable "ipv4_cidr" {
+  description = "Cluster ipv4 block"
+  type        = string
+}
+
