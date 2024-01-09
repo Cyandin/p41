@@ -5,6 +5,13 @@ terraform {
       version = ">= 4.0"
     }
   }
+  backend "s3" {
+    bucket         = "cngtfstate"
+    key            = "terraform/terraform.tfstate"
+    region         = "ca-central-1"
+    encrypt        = true
+    dynamodb_table = "terraform-state-locking"
+  }
 }
 
 provider "aws" {
