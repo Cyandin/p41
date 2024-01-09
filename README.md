@@ -5,6 +5,10 @@
 #
 #Task 1 - Minimalist Application Development / Docker / Kubernetes
 #
+#To pull my image, please run:
+#
+#docker pull cyandin/simple_time_service
+#
 #To launch the Docker container, please run:
 #
 #sudo docker run -d -p 5000:5000 simple_time_service:latest
