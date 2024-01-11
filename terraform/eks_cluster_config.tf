@@ -29,10 +29,10 @@ module "my_vpc" {
 }
 
 module "my_eks_cluster" {
-  source                     = "./eks-module"
-  vpc_id                     = module.my_vpc.vpc_id
-  cluster_name               = "my_eks_cluster"
-  private_subnets            = module.my_vpc.private_subnets
-  ipv4_cidr                  = "192.168.129.0/24" 
+  source          = "./eks-module"
+  vpc_id          = module.my_vpc.vpc_id
+  cluster_name    = "my_eks_cluster"
+  private_subnets = module.my_vpc.private_subnets
+  ipv4_cidr       = "192.168.129.0/24"
 }
 
