@@ -32,6 +32,10 @@
 #kubernetes                    ClusterIP      192.168.129.1     <none>                                                                       443/TCP        19m
 #simple-time-service-service   LoadBalancer   192.168.129.228   a860960207bde4a2abd56fac363373b9-2119437183.ca-central-1.elb.amazonaws.com   80:31818/TCP   8m48s#
 #
+#NOTE: I'm aware the containers are crashing, hence the "CrashLoopBackoff" status. I resolved this issue locally on my dev box by setting my required Werkzeug version. Now I'm trying to mimic this fix on the k8s deployment.
+#
+#
+#
 #
 #
 #Task 2 - Terraform: Create and Use a Module
