@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from datetime import datetime
-from urllib.parse import quote as url_quote
+#from urllib.parse import quote as url_quote
+from werkzeug.urls import url_quote
 
 app = Flask(__name__)
 
