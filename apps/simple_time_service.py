@@ -17,6 +17,3 @@ def get_time_and_ip():
 
 if __name__ == '__main__':
     app.run(debug=False)
-
-
-
